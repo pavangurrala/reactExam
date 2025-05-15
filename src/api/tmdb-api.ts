@@ -62,3 +62,10 @@ export const getMovies = () => {
         return json.results;
       });
   };
+
+  export const getTrendingMovies = (time_window: 'day' | 'week' = 'day') => {
+  return fetch(
+    `https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+  ).then(res => res.json());
+};
+
